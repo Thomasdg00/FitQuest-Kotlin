@@ -1,0 +1,7 @@
+<resources>
+    <style name="Base.Theme.FitQuest" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.FitQuest" parent="Base.Theme.FitQuest" />
+</resources>

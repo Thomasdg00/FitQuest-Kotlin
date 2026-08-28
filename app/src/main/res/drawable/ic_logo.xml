@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="100dp"
+        android:height="100dp"
+        android:viewportWidth="100"
+        android:viewportHeight="100">
+
+    <!-- Sfondo: quadrato con angoli arrotondati -->
+    <path
+        android:pathData="M34,10 L66,10 A24,24 0 0,1 90,34 L90,66 A24,24 0 0,1 66,90 L34,90 A24,24 0 0,1 10,66 L10,34 A24,24 0 0,1 34,10 Z"
+        android:fillColor="#FCF8FF" />
+
+    <!-- Anello con gradiente (richiede minSdk 24+) -->
+    <path
+        android:pathData="M50,30 A20,20 0 1,1 49.9,30"
+        android:fillColor="#00000000"
+        android:strokeWidth="12"
+        android:strokeLineCap="round">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:type="linear"
+                android:startX="30"
+                android:startY="30"
+                android:endX="70"
+                android:endY="70"
+                android:startColor="#5544AA"
+                android:endColor="#7A66D4" />
+            </aapt:attr>
+        </path>
+
+        <!-- Linea diagonale -->
+        <path
+            android:pathData="M65,65 L80,80"
+            android:fillColor="#00000000"
+            android:strokeColor="#3B8C6E"
+            android:strokeWidth="12"
+            android:strokeLineCap="round" />
+
+        <!-- Punto centrale -->
+        <path
+            android:pathData="M44,50 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0"
+            android:fillColor="#3B8C6E" />
+
+        </vector>
