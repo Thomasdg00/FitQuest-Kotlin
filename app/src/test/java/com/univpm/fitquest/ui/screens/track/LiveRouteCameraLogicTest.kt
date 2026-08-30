@@ -1,9 +1,12 @@
 package com.univpm.fitquest.ui.screens.track
 
+import com.google.android.gms.maps.model.LatLng
 import com.univpm.fitquest.tracking.location.PreviewLocation
 import com.univpm.fitquest.tracking.service.InMemoryRoutePoint
+import com.univpm.fitquest.tracking.service.TrackingLifecycleState
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -65,5 +68,15 @@ class LiveRouteCameraLogicTest {
                 previewLocation = previewLocation,
             )
         )
+    }
+
+    @Test
+    fun routeCameraFollowsLatestPointOnlyWhileRunning() {
+        val point = LatLng(43.6168, 13.5189)
+
+        assertEquals(point, latestPointToFollow(TrackingLifecycleState.Running, point))
+        assertNull(latestPointToFollow(TrackingLifecycleState.Paused, point))
+        assertNull(latestPointToFollow(TrackingLifecycleState.Idle, point))
+        assertNull(latestPointToFollow(TrackingLifecycleState.Running, null))
     }
 }

@@ -65,6 +65,11 @@ internal fun shouldCenterOnPreviewLocation(
     return !hasCenteredOnUser && routePoints.isEmpty() && previewLocation != null
 }
 
+internal fun latestPointToFollow(
+    lifecycleState: TrackingLifecycleState,
+    latestPoint: LatLng?,
+): LatLng? = latestPoint?.takeIf { lifecycleState == TrackingLifecycleState.Running }
+
 @Composable
 fun LiveRouteMap(
     routePoints: List<InMemoryRoutePoint>,
@@ -108,6 +113,12 @@ fun LiveRouteMap(
             val target = initialRouteMapCameraTarget(routePoints, previewLocation)
             cameraPositionState.move(CameraUpdateFactory.newLatLngZoom(target.toLatLng(), target.zoom))
             hasCenteredOnUser = true
+        }
+    }
+
+    LaunchedEffect(lifecycleState, latestPoint) {
+        latestPointToFollow(lifecycleState, latestPoint)?.let { target ->
+            cameraPositionState.move(CameraUpdateFactory.newLatLng(target))
         }
     }
 
