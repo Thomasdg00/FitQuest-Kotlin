@@ -5,7 +5,7 @@ import com.univpm.fitquest.domain.model.ThemeMode
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class RoomEntityDefaultsTest {
+class EntityDefaultsTest {
     @Test
     fun newWorkoutStartsWithoutDatabaseId() {
         val workout = WorkoutEntity(sport = Sport.Running.routeValue, startedAtMillis = 1_000L)

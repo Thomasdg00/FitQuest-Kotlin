@@ -75,7 +75,7 @@
     <string name="history_empty">Nessun allenamento salvato.</string>
     <string name="history_workout_summary">%1$s km | %2$d min</string>
 
-    <string name="workout_detail_title">Dettaglio allenamento</string>
+    <string name="workout_detail_title">Dettagli Attività</string>
     <string name="workout_detail_subtitle">Percorso, statistiche e grafici salvati.</string>
     <string name="back">Indietro</string>
     <string name="workout_not_found">Allenamento non trovato.</string>

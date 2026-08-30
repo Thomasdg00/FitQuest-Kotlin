@@ -93,6 +93,7 @@ fun LiveRouteMap(
     }
     val mapUiSettings = remember {
         MapUiSettings(
+            myLocationButtonEnabled = false,
             zoomControlsEnabled = false,
             mapToolbarEnabled = false,
         )

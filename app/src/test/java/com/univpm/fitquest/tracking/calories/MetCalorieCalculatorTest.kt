@@ -2,6 +2,7 @@ package com.univpm.fitquest.tracking.calories
 
 import com.univpm.fitquest.domain.model.Sport
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
 class MetCalorieCalculatorTest {
@@ -27,6 +28,15 @@ class MetCalorieCalculatorTest {
     fun distanceChangesAverageSpeedAndMetBand() {
         assertEquals(70.0, estimate(Sport.Walking, 60 * 60_000L, 1_000.0, 70.0), 0.0)
         assertEquals(210.0, estimate(Sport.Walking, 60 * 60_000L, 5_000.0, 70.0), 0.0)
+    }
+
+    @Test
+    fun updatedDurationAndDistanceProduceDifferentCalorieEstimate() {
+        val previousEstimate = estimate(Sport.Running, 59_000L, 150.0, 70.0)
+        val updatedEstimate = estimate(Sport.Running, 60_000L, 210.0, 70.0)
+
+        assertNotEquals(previousEstimate, updatedEstimate, 0.0)
+        assertEquals(13.4166667, updatedEstimate, 0.0000001)
     }
 
     @Test

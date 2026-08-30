@@ -10,7 +10,7 @@ import org.junit.Test
 
 class TrackingSessionStateMachineTest {
     @Test
-    fun duplicateStartDoesNotResetTheAcceptedSession() {
+    fun duplicateStartIsRejectedWhileSessionIsActive() {
         val stateMachine = TrackingSessionStateMachine()
         val route = mutableListOf("existing-point")
         var sport: Sport? = null
@@ -49,7 +49,7 @@ class TrackingSessionStateMachineTest {
     }
 
     @Test
-    fun duplicateStopKeepsOneInFlightSaveAndOneFinalResult() {
+    fun duplicateStopIsRejectedWhileSaveIsPending() {
         val stateMachine = TrackingSessionStateMachine()
         val firstRequest = saveRequest(endedAtMillis = 2_000L)
         val duplicateRequest = saveRequest(endedAtMillis = 3_000L)

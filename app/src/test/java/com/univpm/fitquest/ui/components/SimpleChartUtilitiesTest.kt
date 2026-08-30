@@ -4,7 +4,7 @@ import com.univpm.fitquest.util.FormatUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class SimpleChartsTest {
+class SimpleChartUtilitiesTest {
     @Test
     fun chartAxisTicksUseReadableRoundedStepsAcrossDataRange() {
         assertEquals(

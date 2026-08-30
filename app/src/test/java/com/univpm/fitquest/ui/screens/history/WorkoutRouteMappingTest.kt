@@ -4,7 +4,7 @@ import com.univpm.fitquest.data.local.entity.RoutePointEntity
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class WorkoutRouteMapTest {
+class WorkoutRouteMappingTest {
     @Test
     fun savedRoutePointsAreSortedAndConvertedToGoogleMapsLatLng() {
         val points = listOf(

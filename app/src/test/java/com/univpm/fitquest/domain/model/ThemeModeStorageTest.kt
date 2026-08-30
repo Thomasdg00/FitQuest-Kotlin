@@ -3,7 +3,7 @@ package com.univpm.fitquest.domain.model
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class AppPreferencesTest {
+class ThemeModeStorageTest {
     @Test
     fun themeModeSupportsLightAndDarkWhileUnknownOrLegacyValuesFallBackToLight() {
         assertEquals(ThemeMode.Dark, ThemeMode.fromStorageValue("dark"))
